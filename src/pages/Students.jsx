@@ -5,6 +5,7 @@ import StudentCard from "../components/StudentCard.jsx";
 function Students() {
   const [students, setStudents] = useState([]);
   const [search, setSearch] = useState("");
+  const [sortOrder, setSortOrder] = useState("asc");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -20,21 +21,38 @@ function Students() {
       });
   }, []);
 
-  const filteredStudents = students.filter((student) =>
-    student.name.toLowerCase().includes(search.toLowerCase())
-  );
+  const filteredStudents = students
+    .filter((student) =>
+      student.name.toLowerCase().includes(search.toLowerCase())
+    )
+    .sort((a, b) =>
+      sortOrder === "asc"
+        ? a.name.localeCompare(b.name)
+        : b.name.localeCompare(a.name)
+    );
 
   return (
     <div className="container">
       <h1>Students</h1>
 
-      <input
-        className="search-box"
-        type="text"
-        placeholder="Search student..."
-        value={search}
-        onChange={(event) => setSearch(event.target.value)}
-      />
+      <div className="controls-row">
+        <input
+          className="search-box"
+          type="text"
+          placeholder="Search student..."
+          value={search}
+          onChange={(event) => setSearch(event.target.value)}
+        />
+
+        <select
+          className="sort-select"
+          value={sortOrder}
+          onChange={(event) => setSortOrder(event.target.value)}
+        >
+          <option value="asc">Name (A-Z)</option>
+          <option value="desc">Name (Z-A)</option>
+        </select>
+      </div>
 
       {loading ? (
         <p>Loading students...</p>
