@@ -4,22 +4,26 @@
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f4f6f8;
-  color: #222;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: #f0f2f5;
+  color: #1f2937;
+  line-height: 1.5;
 }
 
 .navbar {
-  background: #1f2937;
+  background: linear-gradient(135deg, #1f2937, #111827);
   color: white;
   padding: 18px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 
 .navbar h2 {
   margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.3px;
 }
 
 .nav-links {
@@ -28,12 +32,15 @@ body {
 }
 
 .navbar a {
-  color: white;
+  color: #e5e7eb;
   text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
 }
 
 .navbar a:hover {
-  text-decoration: underline;
+  color: #60a5fa;
+  text-decoration: none;
 }
 
 .container {
@@ -44,37 +51,63 @@ body {
 
 .home {
   text-align: center;
-  padding-top: 100px;
+  padding: 120px 20px;
+  background: linear-gradient(135deg, #eff6ff, #f8fafc);
+  border-radius: 16px;
+  margin-top: 20px;
 }
 
 .home h1 {
-  font-size: 40px;
+  font-size: 42px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 14px;
+}
+
+.home p {
+  font-size: 18px;
+  color: #4b5563;
+  max-width: 500px;
+  margin: 0 auto 30px;
 }
 
 .button,
 button {
   display: inline-block;
-  background: #2563eb;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
   color: white;
   border: none;
-  padding: 11px 18px;
-  border-radius: 6px;
+  padding: 12px 22px;
+  border-radius: 8px;
   text-decoration: none;
   cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.3);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
 }
 
 .button:hover,
 button:hover {
-  background: #1d4ed8;
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.4);
 }
 
 .search-box {
   width: 100%;
-  padding: 13px;
+  padding: 13px 16px;
   margin: 20px 0;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
   font-size: 16px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-box:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
 .student-grid {
@@ -87,13 +120,21 @@ button:hover {
 .details-card,
 .student-form {
   background: white;
-  padding: 22px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  border: 1px solid #eef0f3;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.student-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .student-card h3 {
   margin-top: 0;
+  color: #111827;
 }
 
 .student-card .button {
@@ -108,14 +149,23 @@ button:hover {
   display: block;
   margin-top: 15px;
   margin-bottom: 6px;
-  font-weight: bold;
+  font-weight: 600;
+  color: #374151;
 }
 
 .student-form input {
   width: 100%;
   padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.student-form input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
 .student-form button {
@@ -134,5 +184,13 @@ button:hover {
   .navbar {
     flex-direction: column;
     gap: 15px;
+  }
+
+  .home {
+    padding: 80px 16px;
+  }
+
+  .home h1 {
+    font-size: 30px;
   }
 }
